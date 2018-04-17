@@ -43,13 +43,13 @@ namespace Namer
             if (ofdg.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
                 string file = ofdg.FileName;//得到选择的文件的完整路径
-                StreamReader sR2 = File.OpenText(file);
-                string name = "";
-                while ((name = sR2.ReadLine()) != null)
-                {   // 4 将每行添加到文件List中
-                    this.listBox1.Items.Add(name);
+                string[] lines = File.ReadAllLines(file,Encoding.Default);
+                listBox1.Items.Clear();
+                foreach (string s in lines)
+                {
+                    listBox1.Items.Add(s);
                 }
-               
+
             }
         }
 
@@ -62,24 +62,33 @@ namespace Namer
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             string imageFormat = Path.GetExtension(imagePath);
-            Bitmap bitmap = (Bitmap)Image.FromFile(imagePath);
-           
-            Graphics g1 = Graphics.FromImage(bitmap);
+            
 
             string foldPath="";
             if (dialog.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
             {
                 foldPath = dialog.SelectedPath;
                 
-                MessageBox.Show(foldPath);
+                
             }
 
+            foreach (string item in listBox1.Items)
+            {
+                Bitmap bitmap = (Bitmap)Image.FromFile(imagePath);
 
-            StringFormat sf = new StringFormat();
-            sf.Alignment = StringAlignment.Center;
-            g1.DrawString("爱因斯坦", new Font(fontFamily, fontSize, fs), new SolidBrush(c), currentPosition.X, currentPosition.Y, sf);
-            this.pictureBox1.Image = bitmap;
-            this.pictureBox1.Image.Save(foldPath+"/"+"a"+imageFormat,System.Drawing.Imaging.ImageFormat.Jpeg);
+                Graphics g1 = Graphics.FromImage(bitmap);
+
+                StringFormat sf = new StringFormat();
+                sf.Alignment = StringAlignment.Center;
+                g1.DrawString(item, new Font(fontFamily, fontSize, fs), new SolidBrush(c), currentPosition.X, currentPosition.Y, sf);
+                string path = foldPath + "/" + item + imageFormat;
+                bitmap.Save(@path, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            }
+            if (foldPath != "")
+            {
+                MessageBox.Show("成功！！" + " 打开目录  " + foldPath + "   查看");
+            }
 
         }
 

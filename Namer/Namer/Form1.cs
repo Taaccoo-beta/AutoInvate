@@ -26,17 +26,13 @@ namespace Namer
         private int fontSize = 10;
         private string fontFamily = "Arial";
         private FontStyle fs = FontStyle.Bold;
-        private Color c = Color.Black;
+        private Color c = Color.White;
         private string imagePath;
         private Bitmap bitmap;
 
+        private int clickNumber = 0;
 
-        private int iniWidth;
-        private int iniHeight;
-        private int nowWidth;
-        private int nowHeight;
-        private int pictureBoxSizeWidth;
-        private int pictureBoxSizeHeight;
+       
 
 
         private void btnOpenImage_Click(object sender, EventArgs e)
@@ -49,22 +45,16 @@ namespace Namer
                 pictureBox1.Image = bitmap.Clone() as Image;
             }
 
-            iniWidth = this.pictureBox1.Image.Width;
-            iniHeight = this.pictureBox1.Image.Height;
-            System.Reflection.PropertyInfo _ImageRectanglePropert = this.pictureBox1.GetType().GetProperty("ImageRectangle", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            //iniWidth = this.pictureBox1.Image.Width;
+            //iniHeight = this.pictureBox1.Image.Height;
+            //System.Reflection.PropertyInfo _ImageRectanglePropert = this.pictureBox1.GetType().GetProperty("ImageRectangle", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
 
-            Rectangle rect = (Rectangle)_ImageRectanglePropert.GetValue(pictureBox1, null);
-            nowWidth = rect.Width;
-            nowHeight = rect.Height;
-            pictureBoxSizeHeight = this.pictureBox1.Height;
-            pictureBoxSizeWidth = this.pictureBox1.Width;
-            MessageBox.Show(iniWidth.ToString());
-            MessageBox.Show(iniHeight.ToString());
-            MessageBox.Show(nowWidth.ToString());
-            MessageBox.Show(nowHeight.ToString());
+            //Rectangle rect = (Rectangle)_ImageRectanglePropert.GetValue(pictureBox1, null);
+            //nowWidth = rect.Width;
+            //nowHeight = rect.Height;
+            //pictureBoxSizeHeight = this.pictureBox1.Height;
+            //pictureBoxSizeWidth = this.pictureBox1.Width;
             
-            MessageBox.Show(pictureBoxSizeWidth.ToString());
-            MessageBox.Show(pictureBoxSizeHeight.ToString());
 
         }
 
@@ -173,31 +163,20 @@ namespace Namer
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            float x1 = currentPosition.X - (pictureBoxSizeWidth - nowWidth) / 2f;
-            float y1 = currentPosition.Y - (pictureBoxSizeHeight - nowHeight) / 2f;
-            float finalX = x1 * iniWidth / nowWidth;
-            float finalY = y1 * iniHeight / nowHeight;
-            int finalFontSize = ((fontSize) * iniWidth) / (nowWidth );
-            PointF cp = new PointF(finalX, finalY);
-            // f2 = new Form2(cp,finalFontSize,fontFamily,fs,c,imagePath);
-            //f2.Show();
-            Graphics g2 = Graphics.FromImage(this.bitmap);
+            
+            Form f2 = new Form2(currentPosition,fontSize,fontFamily,fs,c,imagePath);
+            f2.Show();
+            
+        }
 
-       
-
-
-            StringFormat sf = new StringFormat();
-            sf.Alignment = StringAlignment.Center;
-            Font ft =  new Font(fontFamily, fontSize, fs);
-            //MessageBox.Show(ft.Size.ToString());
-            //SizeF sizeF = g2.MeasureString("爱因斯坦", ft);
-            //MessageBox.Show(sizeF.Height.ToString());
-            g2.DrawString("爱因斯坦",ft , new SolidBrush(c), finalX, finalY, sf);
-            ////this.pictureBox1.Image = bitmap;
-            ////this.pictureBox1.Image.Save(foldPath + "/" + "a" + imageFormat, System.Drawing.Imaging.ImageFormat.Jpeg);
-            this.bitmap.Save("g:/test/hello.jpg" , System.Drawing.Imaging.ImageFormat.Jpeg);
-
-            //MessageBox.Show(rect.Width.ToString());
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            clickNumber += 1;
+            if (clickNumber == 4)
+            {
+                MessageBox.Show("老婆我爱你！");
+                clickNumber = 0;
+            }
         }
     }
 }
