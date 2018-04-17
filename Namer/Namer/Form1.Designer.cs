@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnOpenImage = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBig = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSmall = new System.Windows.Forms.Button();
             this.btnChooseColor = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -41,6 +42,7 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,21 +64,21 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // button1
+            // btnBig
             // 
-            this.button1.Location = new System.Drawing.Point(8, 22);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 27);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Big";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBig.Location = new System.Drawing.Point(8, 22);
+            this.btnBig.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnBig.Name = "btnBig";
+            this.btnBig.Size = new System.Drawing.Size(100, 27);
+            this.btnBig.TabIndex = 2;
+            this.btnBig.Text = "Big";
+            this.btnBig.UseVisualStyleBackColor = true;
+            this.btnBig.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnSmall);
+            this.groupBox1.Controls.Add(this.btnBig);
             this.groupBox1.Location = new System.Drawing.Point(141, 14);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
@@ -86,16 +88,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "FontSize";
             // 
-            // button2
+            // btnSmall
             // 
-            this.button2.Location = new System.Drawing.Point(116, 22);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 27);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Small";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnSmall.Location = new System.Drawing.Point(116, 22);
+            this.btnSmall.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnSmall.Name = "btnSmall";
+            this.btnSmall.Size = new System.Drawing.Size(100, 27);
+            this.btnSmall.TabIndex = 3;
+            this.btnSmall.Text = "Small";
+            this.btnSmall.UseVisualStyleBackColor = true;
+            this.btnSmall.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnChooseColor
             // 
@@ -195,9 +197,9 @@
 
         private System.Windows.Forms.Button btnOpenImage;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBig;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSmall;
         private System.Windows.Forms.Button btnChooseColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
         public System.Windows.Forms.PictureBox pictureBox2;
@@ -206,6 +208,7 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

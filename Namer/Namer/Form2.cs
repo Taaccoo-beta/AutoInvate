@@ -94,7 +94,8 @@ namespace Namer
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            toolTip1.SetToolTip(btnChoose, "打开带名字的列表");
+            toolTip1.SetToolTip(btnSave, "选择一个文件夹存放结果");
         }
     }
 }

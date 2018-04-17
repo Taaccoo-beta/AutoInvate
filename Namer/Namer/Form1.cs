@@ -68,6 +68,13 @@ namespace Namer
             ifDrawRect = false;
             
             fontSize = 15;
+
+            toolTip1.SetToolTip(btnOpenImage, "打开一张图");
+            toolTip1.SetToolTip(btnBig, "放大字体");
+            toolTip1.SetToolTip(btnSmall, "缩小字体");
+            toolTip1.SetToolTip(btnChooseColor, "选择颜色");
+            toolTip1.SetToolTip(btnFont, "选择字体");
+            toolTip1.SetToolTip(btnStart, "设置完成并打开存储模块");
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
