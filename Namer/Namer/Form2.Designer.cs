@@ -42,7 +42,7 @@
             this.btnChoose.Name = "btnChoose";
             this.btnChoose.Size = new System.Drawing.Size(103, 27);
             this.btnChoose.TabIndex = 0;
-            this.btnChoose.Text = "选择";
+            this.btnChoose.Text = "Choose";
             this.btnChoose.UseVisualStyleBackColor = true;
             this.btnChoose.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -65,7 +65,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(103, 27);
             this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "存储";
+            this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.button2_Click);
             // 
