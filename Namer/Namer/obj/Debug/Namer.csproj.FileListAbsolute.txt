@@ -1,0 +1,9 @@
+H:\github\Namer\Namer\bin\Debug\Namer.exe.config
+H:\github\Namer\Namer\bin\Debug\Namer.exe
+H:\github\Namer\Namer\bin\Debug\Namer.pdb
+H:\github\Namer\Namer\obj\Debug\Namer.Form1.resources
+H:\github\Namer\Namer\obj\Debug\Namer.Properties.Resources.resources
+H:\github\Namer\Namer\obj\Debug\Namer.csproj.GenerateResource.Cache
+H:\github\Namer\Namer\obj\Debug\Namer.exe
+H:\github\Namer\Namer\obj\Debug\Namer.pdb
+H:\github\Namer\Namer\obj\Debug\Namer.Form2.resources
