@@ -221,7 +221,7 @@
             this.groupBox3.Size = new System.Drawing.Size(388, 175);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Save";
+            this.groupBox3.Text = "Saving";
             // 
             // tbFileName
             // 
@@ -288,7 +288,7 @@
             this.groupBox4.Size = new System.Drawing.Size(388, 135);
             this.groupBox4.TabIndex = 12;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "ChooseSettings";
+            this.groupBox4.Text = "Loading";
             // 
             // btnChooseConfig
             // 
