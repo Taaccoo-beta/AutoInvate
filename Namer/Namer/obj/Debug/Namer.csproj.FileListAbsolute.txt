@@ -16,3 +16,12 @@ F:\github\autoinvate\Namer\Namer\obj\Debug\Namer.Properties.Resources.resources
 F:\github\autoinvate\Namer\Namer\obj\Debug\Namer.csproj.GenerateResource.Cache
 F:\github\autoinvate\Namer\Namer\obj\Debug\Namer.exe
 F:\github\autoinvate\Namer\Namer\obj\Debug\Namer.pdb
+E:\github\autoinvite\Namer\Namer\bin\Debug\Namer.exe.config
+E:\github\autoinvite\Namer\Namer\bin\Debug\Namer.exe
+E:\github\autoinvite\Namer\Namer\bin\Debug\Namer.pdb
+E:\github\autoinvite\Namer\Namer\obj\Debug\Namer.Form1.resources
+E:\github\autoinvite\Namer\Namer\obj\Debug\Namer.Form2.resources
+E:\github\autoinvite\Namer\Namer\obj\Debug\Namer.Properties.Resources.resources
+E:\github\autoinvite\Namer\Namer\obj\Debug\Namer.csproj.GenerateResource.Cache
+E:\github\autoinvite\Namer\Namer\obj\Debug\Namer.exe
+E:\github\autoinvite\Namer\Namer\obj\Debug\Namer.pdb

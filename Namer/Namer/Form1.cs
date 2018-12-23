@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -119,7 +120,7 @@ namespace Namer
         private void button1_Click(object sender, EventArgs e)
         {
             fontSize++;
-            
+            this.lblFontSize.Text = fontSize.ToString();
             this.pictureBox1.Invalidate();
         }
 
@@ -130,6 +131,7 @@ namespace Namer
             {
                 fontSize = 4;
             }
+            this.lblFontSize.Text = fontSize.ToString();
             this.pictureBox1.Invalidate();
         }
 
@@ -140,6 +142,7 @@ namespace Namer
                 this.pictureBox2.BackColor = colorDialog1.Color;
                 c = colorDialog1.Color;
                 this.pictureBox1.Invalidate();
+                
                 
             }
         }
@@ -183,6 +186,117 @@ namespace Namer
             {
                 MessageBox.Show("老婆我爱你！");
                 clickNumber = 0;
+            }
+        }
+        //private void DataSave()
+        //{
+        //    FileInfo myFile = new FileInfo(path);
+        //    StreamWriter sW = myFile.CreateText();
+
+        //    sW.WriteLine("ExpName: " + expName);
+        //    sW.WriteLine("Date: " + dateTime);
+
+        //    sW.Write("ExpOrder:  [");
+        //    foreach (var item in expOrder)
+        //    {
+        //        sW.Write(item + ",");
+        //    }
+        //    sW.Write("]");
+
+        //    sW.WriteLine();
+
+
+        //    sW.WriteLine();
+        //    sW.WriteLine();
+        //    sW.Write("Position" + " " + "Torque");
+        //    sW.WriteLine();
+
+        //    for (int i = 1; i != 7; i++)
+        //    {
+        //        sW.Write("exp" + i);
+        //        sW.WriteLine();
+        //        int indexInside = positionData[i].Count;
+        //        for (int j = 0; j != indexInside; j++)
+        //        {
+        //            sW.WriteLine(positionData[i][j].ToString("00.00") + "," + troqueData[i][j].ToString("00.00"));
+        //        }
+
+        //    }
+
+        //    sW.Close();
+        //}
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (lblFileName.Text != "NULL" & tbFileName.Text != "")
+            {
+                string path = this.lblFileName.Text +"\\" + tbFileName.Text + ".txt";
+                FileInfo myFile = new FileInfo(path);
+                StreamWriter sW = myFile.CreateText();
+
+                try
+                {
+                    sW.WriteLine(fontSize);
+                    sW.WriteLine(c.ToArgb());
+                    sW.WriteLine(fontFamily);
+                }
+                catch
+                {
+                    MessageBox.Show("No config parameters");
+                }
+                sW.Close();
+            }
+            else
+            {
+                MessageBox.Show("Wrong!!");
+            }
+        }
+
+        private void btnChoosePath_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog BrowDialog = new FolderBrowserDialog();
+            BrowDialog.ShowNewFolderButton = true;
+            BrowDialog.Description = "请选择数据保存位置";
+            BrowDialog.ShowDialog();
+            string path = BrowDialog.SelectedPath;
+            if (path != "")
+            {
+                lblFileName.Text = path;
+            }
+            else
+            {
+                MessageBox.Show("No path Choosed!");
+            }
+        }
+
+        private void btnChooseConfig_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string path = ofd.FileName;
+                MessageBox.Show(path);
+                string fileName = path.Substring(path.LastIndexOf("\\") + 1);
+                this.lblShowConfigFile.Text = fileName;
+                StreamReader sR = File.OpenText(path);
+                
+                string strFontSize = sR.ReadLine();
+                this.fontSize = int.Parse(strFontSize);
+                this.lblFontSize.Text = fontSize.ToString();
+                MessageBox.Show(fontSize.ToString());
+                string strC = sR.ReadLine();
+                this.c = Color.FromArgb(int.Parse(strC));
+                this.pictureBox2.BackColor = c;
+                MessageBox.Show(c.Name);
+                string strFontFamily = sR.ReadLine();
+                this.fontFamily = strFontFamily;
+                MessageBox.Show(fontFamily.ToString());
+                this.pictureBox1.Invalidate();
+
+                sR.Close();
             }
         }
     }

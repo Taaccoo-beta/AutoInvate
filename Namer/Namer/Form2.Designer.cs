@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.btnChoose = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -77,9 +78,10 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnChoose);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form2";
-            this.Text = "Saver";
+            this.Text = "Save";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
 
