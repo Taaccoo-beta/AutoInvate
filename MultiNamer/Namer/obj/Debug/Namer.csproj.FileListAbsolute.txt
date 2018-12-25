@@ -35,3 +35,12 @@ H:\github\autoinvite\MultiNamer\Namer\obj\Debug\Namer.Properties.Resources.resou
 H:\github\autoinvite\MultiNamer\Namer\obj\Debug\Namer.csproj.GenerateResource.Cache
 H:\github\autoinvite\MultiNamer\Namer\obj\Debug\Namer.exe
 H:\github\autoinvite\MultiNamer\Namer\obj\Debug\Namer.pdb
+E:\github\autoinvite\MultiNamer\Namer\bin\Debug\Namer.exe.config
+E:\github\autoinvite\MultiNamer\Namer\bin\Debug\Namer.exe
+E:\github\autoinvite\MultiNamer\Namer\bin\Debug\Namer.pdb
+E:\github\autoinvite\MultiNamer\Namer\obj\Debug\Namer.Form1.resources
+E:\github\autoinvite\MultiNamer\Namer\obj\Debug\Namer.Form2.resources
+E:\github\autoinvite\MultiNamer\Namer\obj\Debug\Namer.Properties.Resources.resources
+E:\github\autoinvite\MultiNamer\Namer\obj\Debug\Namer.csproj.GenerateResource.Cache
+E:\github\autoinvite\MultiNamer\Namer\obj\Debug\Namer.exe
+E:\github\autoinvite\MultiNamer\Namer\obj\Debug\Namer.pdb

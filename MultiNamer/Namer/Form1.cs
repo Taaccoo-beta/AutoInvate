@@ -130,7 +130,14 @@ namespace Namer
                 int X = charList[cbCharList.SelectedIndex].X;
                 int Y = charList[cbCharList.SelectedIndex].Y;
                 StringFormat sf = new StringFormat();
-                sf.Alignment = StringAlignment.Center;
+                if (charList[cbCharList.SelectedIndex].alignment == 1)
+                {
+                    sf.Alignment = StringAlignment.Center;
+                }
+                else
+                {
+                    sf.Alignment = StringAlignment.Near;
+                }
                 e.Graphics.DrawString(cbCharList.Items[cbCharList.SelectedIndex].ToString(), new Font(fontFamily, fontSize, fs), new SolidBrush(c), X, Y,sf);
             }
         }
@@ -191,9 +198,13 @@ namespace Namer
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            
-            //Form f2 = new Form2(currentPosition,fontSize,fontFamily,fs,c,imagePath);
-            //f2.Show();
+            List<string> l = new List<string>();
+            for (int i = 0; i != cbCharList.Items.Count; i++)
+            {
+                l.Add(cbCharList.Items[i].ToString());
+            }
+            Form f2 = new Form2(charList,l,imagePath);
+            f2.Show();
             
         }
 
@@ -263,6 +274,7 @@ namespace Namer
                         sW.WriteLine(cbCharList.Items.Count);
                         for (int i = 0; i != cbCharList.Items.Count; i++)
                         {
+                           
                             Font f = new Font(charList[i].fontFamily, charList[i].fontSize, charList[i].fs);
                             FontConverter x = new FontConverter();
                             string s = x.ConvertToString(f);
@@ -272,6 +284,7 @@ namespace Namer
                             sW.WriteLine(charList[i].c.ToArgb()); 
                             sW.WriteLine(charList[i].X);
                             sW.WriteLine(charList[i].Y);
+                            sW.WriteLine(charList[i].alignment);
                             
                         }
 
@@ -336,7 +349,8 @@ namespace Namer
                     Color c = Color.FromArgb(int.Parse(sR.ReadLine()));
                     int X = int.Parse(sR.ReadLine());
                     int Y = int.Parse(sR.ReadLine());
-                    PropertyOfChar poc = new PropertyOfChar((int)f.Size, c, f.FontFamily.Name, f.Style, X, Y);
+                    int alignment = int.Parse(sR.ReadLine());
+                    PropertyOfChar poc = new PropertyOfChar((int)f.Size, c, f.FontFamily.Name, f.Style, alignment,X, Y);
                     charList.Add(poc);
                 }
                 sR.Close();
@@ -381,7 +395,7 @@ namespace Namer
                 this.cbCharList.Items.Add(tbItemadded.Text);
                 this.lblItemNumber.Text = cbCharList.Items.Count.ToString();
                 
-                PropertyOfChar poc = new PropertyOfChar(10, Color.White, "Arial",FontStyle.Bold,10,10);
+                PropertyOfChar poc = new PropertyOfChar(10, Color.White, "Arial",FontStyle.Bold,1,10,10);
                 charList.Add(poc);
             }
             else
@@ -411,6 +425,18 @@ namespace Namer
         private void cbCharList_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void reLeft_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCenter.Checked)
+            {
+                charList[cbCharList.SelectedIndex].alignment = 1;
+            }
+            else
+            {
+                charList[cbCharList.SelectedIndex].alignment = 0;
+            }
         }
     }
 }

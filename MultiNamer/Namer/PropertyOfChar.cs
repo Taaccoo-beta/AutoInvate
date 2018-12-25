@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Namer
 {
-    class PropertyOfChar
+    public class PropertyOfChar
     {
         public int fontSize;
         public Color c;
@@ -15,9 +15,10 @@ namespace Namer
         public FontStyle fs;
         public int X;
         public int Y;
+        public int alignment;  //near  0 ,center 1
 
        
-        public PropertyOfChar(int fontSize, Color c, string fontFamily,FontStyle fs,int X,int Y)
+        public PropertyOfChar(int fontSize, Color c, string fontFamily,FontStyle fs,int alignment,int X,int Y)
         {
             this.fontSize = fontSize;
             this.c = c;
@@ -25,6 +26,7 @@ namespace Namer
             this.fs = fs;
             this.X = X;
             this.Y = Y;
+            this.alignment = alignment;
         }
         //string strFontSize = sR.ReadLine();
         //        this.fontSize = int.Parse(strFontSize);
